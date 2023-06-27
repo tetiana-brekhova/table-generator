@@ -61,19 +61,20 @@ class TableCreator(tkinter.Tk):
 
     def add_new_row(self):
         row_entries = []
-        for column in range(self.total_columns):
-            entry = ttk.Entry(self.frame_table, width=15, font=('Arial', 14, 'bold'))
-            entry.grid(row=self.total_rows, column=column, padx=5, pady=5)
+
+        for colum in range(self.total_columns):
+            entry = tkinter.Entry(self.frame_table, width=15, fg='black', font=('Arial', 14, 'bold'))
+            entry.grid(row=(self.total_rows), column=colum, padx=5, pady=5)
             row_entries.append(entry)
-            self.data_lst[self.total_rows - 1].append(entry)
-        self.data_lst.append(row_entries)
+
         self.total_rows += 1
+        self.data_lst.append(row_entries)
 
     def add_new_column(self):
-        for row in range(self.total_rows):
-            entry = ttk.Entry(self.frame_table, width=15, font=('Arial', 14, 'bold'))
-            entry.grid(row=row, column=self.total_columns, padx=5, pady=5)
-            self.data_lst[row].append(entry)
+        for i in range(self.total_rows):
+            entry = tkinter.Entry(self.frame_table, width=15, fg='black', font=('Arial', 14, 'bold'))
+            entry.grid(row=i, column=self.total_columns, padx=5, pady=5)
+            self.data_lst[i].append(entry)
         self.total_columns += 1
 
     def save_table(self):
